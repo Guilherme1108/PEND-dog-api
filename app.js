@@ -19,7 +19,6 @@ async function buscarImagens(nomeRaca) {
     const url = `https://dog.ceo/api/breed/${nomeRaca}/images`
     const response = await fetch(url)
     const imagens = await response.json()
-    console.log(imagens.message)
     return imagens.message
 }
 
@@ -27,7 +26,7 @@ function criarImagens(listaDeImagens) {
     const conjuntoImagens = document.getElementById('divImagens')
     conjuntoImagens.innerHTML = '' // limpa as imagens
   
-    listaDeImagens.slice().forEach(url => {
+    listaDeImagens.forEach(url => {
       const imagemCachorro = document.createElement('img')
       imagemCachorro.classList.add('dogImg')
       imagemCachorro.src = url
